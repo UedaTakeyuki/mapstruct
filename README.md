@@ -14,7 +14,7 @@ func ToMap[T any](d *T) (result map[string]interface{}, err error)
 ```
 
 ## example
-refer [mapstruct_test.go](test/mapstruct.go)
+refer [mapstruct_test.go](https://github.com/UedaTakeyuki/mapstruct/blob/main/test/mapstruct_test.go)
 
 ## requirement
 Go version 1.18 or later (using generics)
