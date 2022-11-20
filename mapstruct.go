@@ -7,6 +7,7 @@ package mapstruct
 
 import "encoding/json"
 
+// Convert map[string]interface{} to a specific struct
 func ToStruct[T any](d map[string]interface{}) (result *T, err error) {
 	var jsonStr []byte
 	if jsonStr, err = json.Marshal(d); err != nil {
@@ -18,6 +19,7 @@ func ToStruct[T any](d map[string]interface{}) (result *T, err error) {
 	return
 }
 
+// Convert a specific struct to ap[string]interface{}
 func ToMap[T any](d *T) (result map[string]interface{}, err error) {
 	var jsonStr []byte
 	if jsonStr, err = json.Marshal(d); err != nil {
