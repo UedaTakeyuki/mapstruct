@@ -1,5 +1,5 @@
 # mapstruct
-Converting mutually between map and struct.
+Converting mutually between map[string]interface{} and struct.
 
 # Functions
 ## ToStruct
