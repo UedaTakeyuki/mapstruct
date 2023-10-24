@@ -52,3 +52,19 @@ func Test_01(t *testing.T) {
 	cp.Compare(t, point2.CreatedTime, int64(point3["CreatedTime"].(float64)))
 	cp.Compare(t, point2.Detail.Reason, point3["Detail"].(map[string]interface{})["Reason"])
 }
+
+func BenchmarkToStruct(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		mapstruct.ToStruct[PointType](map[string]interface{}{"User": "taro",
+			"Type":        1,
+			"CreatedTime": time.Now().Unix(),
+			"Detail":      map[string]interface{}{"Reason": "gift"}})
+	}
+}
+
+func BenchmarkToMap(b *testing.B) {
+	point := new(PointType)
+	for i := 0; i < b.N; i++ {
+		mapstruct.ToMap[PointType](point)
+	}
+}
